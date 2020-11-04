@@ -1,0 +1,73 @@
+version: '2.2'
+
+services:
+ masterm1:
+  image: yobasystems/alpine-mariadb
+  restart: always
+  hostname: masterm1
+  container_name: masterm1
+  volumes:
+   - /db/master/masterm1.cnf:/etc/my.cnf.d/mariadb-server.cnf
+  ports:
+   - 3331:3306
+  environment:
+   - MYSQL_ROOT_PASSWORD=my-secret-pw
+   - MYSQL_DATABASE=wordpress
+   - MYSQL_USER=slave
+   - MYSQL_PASSWORD=my-secret-pw
+ masterm2: 
+  image: yobasystems/alpine-mariadb                       
+  restart: always
+  hostname: masterm2
+  container_name: masterm2
+  volumes:                           
+   - /db/master/masterm2.cnf:/etc/my.cnf.d/mariadb-server.cnf
+  ports:             
+   - 3332:3306                  
+  environment:
+   - MYSQL_ROOT_PASSWORD=my-secret-pw
+   - MYSQL_DATABASE=wordpress
+   - MYSQL_USER=slave
+   - MYSQL_PASSWORD=my-secret-pw
+ master1: 
+  image: yobasystems/alpine-mariadb                       
+  restart: always
+  hostname: master1
+  container_name: master1
+  volumes:                           
+   - /db/master/master1.cnf:/etc/my.cnf.d/mariadb-server.cnf
+  ports:             
+   - 3301:3306                  
+  environment:
+   - MYSQL_ROOT_PASSWORD=my-secret-pw
+   - MYSQL_DATABASE=wordpress
+   - MYSQL_USER=slave
+   - MYSQL_PASSWORD=my-secret-pw
+ slave1:                                          
+  image: yobasystems/alpine-mariadb  
+  restart: always                    
+  hostname: slave1                   
+  container_name: slave1             
+  volumes:                         
+   - /db/slave/slave1.cnf:/etc/my.cnf.d/mariadb-server.cnf
+  ports:                                         
+   - 3302:3306                                   
+  environment:                                   
+   - MYSQL_ROOT_PASSWORD=my-secret-pw            
+   - MYSQL_DATABASE=wordpress                    
+   - MYSQL_USER=slave                            
+   - MYSQL_PASSWORD=my-secret-pw 
+ slave2:
+  image: yobasystems/alpine-mariadb
+  restart: always
+  hostname: slave2
+  container_name: slave2
+  volumes:
+   - /db/slave/slave2.cnf:/etc/my.cnf.d/mariadb-server.cnf
+  ports:                                          
+   - 3303:3306                                    
+  environment:                                    
+   - MYSQL_ROOT_PASSWORD=my-secret-pw
+   - MYSQL_DATABASE=wordpress
+   - MYSQL_USER=slave                
+   - MYSQL_PASSWORD=my-secret-pw
