@@ -1,5 +1,6 @@
 # MariaDB cluster
 
+[blog](https://owenouyang.github.io/blog/2020/11/03/mysql-%E4%B8%BB%E5%BE%9E%E4%BC%BA%E6%9C%8D%E5%99%A8/)
 ## master/slave
 
 ```bash
