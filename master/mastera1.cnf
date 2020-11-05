@@ -1,0 +1,7 @@
+[mysqld]
+server-id=3341
+log-bin=mysql-bin
+binlog-ignore-db=mysql
+binlog-ignore-db=information_schema
+#binlog-do-db=wordpress
+binlog_format=STATEMENT

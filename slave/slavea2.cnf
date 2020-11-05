@@ -1,0 +1,5 @@
+[mysqld]
+autocommit=1
+log-bin=mysql-bin
+server-id=3344
+lower_case_table_names=1
