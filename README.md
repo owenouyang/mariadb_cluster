@@ -307,3 +307,8 @@ Tables_in_wordpress: contacts1
 *************************** 2. row ***************************
 Tables_in_wordpress: contacts2
 ```
+
+# 2 masters and 2 slaves
+
+Let's check the asciinema to show the steps
+[![asciicast](https://asciinema.org/a/yzw7sAJeQaX9R2kIh0LpqwIcD.png)](https://asciinema.org/a/yzw7sAJeQaX9R2kIh0LpqwIcD)
