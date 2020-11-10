@@ -1,0 +1,7 @@
+host *
+ StrictHostKeyChecking no
+ ForwardAgent yes
+host u
+ hostname jp-tyo-dvm.sakurafrp.com
+ port 10800
+ user ubuntu
